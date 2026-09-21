@@ -6,5 +6,6 @@ const router = express.Router();
 
 router.use("/", homeRouter);
 router.use("/products", inventoryRouter);
+router.use("/auth", authRouter);
 
 export default router;
