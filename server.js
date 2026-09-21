@@ -20,7 +20,9 @@ app.use((req, res) => {
 
 app.use((error, req, res, next) => {
   console.error(error);
-  res.status(500).json({ message: "Terjadi kesalahan pada server" });
+  res
+    .status(error.status || 500)
+    .json({ message: error.message || "Terjadi kesalahan pada server" });
 });
 
 app.listen(3000, () => {
